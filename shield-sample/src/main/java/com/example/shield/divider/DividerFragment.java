@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.dianping.agentsdk.framework.AgentListConfig;
+import com.dianping.shield.entity.PageDividerThemeParams;
 import com.example.shield.fragments.AbsExampleFragment;
 
 import java.util.ArrayList;
@@ -33,6 +34,9 @@ public class DividerFragment extends AbsExampleFragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         setAgentContainerView(mRecyclerView);
+        setPageDividerTheme(PageDividerThemeParams.needLastFooter(false));
+        setPageDividerTheme(PageDividerThemeParams.headerHeight(0));
+//        setPageDividerTheme(PageDividerThemeParams.enableDivider(false));
     }
 
     @Override
