@@ -8,4 +8,6 @@ public interface DriverInterface {
     void updateAgentCell(AgentInterface agent);
 
     WhiteBoard getWhiteBoard();
+
+    void backToCurrentActivityResult(AgentInterface agent);
 }

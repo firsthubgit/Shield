@@ -268,4 +268,10 @@ public abstract class LightAgent implements AgentInterface, ShieldContainerInter
         } else return null;
     }
 
+    public void backToCurrentActivityResult(){
+        if(bridge != null && (bridge instanceof DriverInterface)){
+            bridge.backToCurrentActivityResult(this);
+        }
+    }
+
 }

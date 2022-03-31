@@ -64,4 +64,6 @@ public interface AgentManagerInterface {
      * */
     AgentInterface findAgent(String name);
 
+    void backToCurrentActivityResult(AgentInterface agent);
+
 }

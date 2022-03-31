@@ -291,8 +291,16 @@ public class LightAgentManager implements AgentManagerInterface {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         for (String name : agentList) {
             AgentInterface agent = agents.get(name);
-            if (agent != null) {
-                agent.onActivityResult(requestCode, resultCode, data);
+            if(mAgentToBack != null){
+                if(mAgentToBack == agent){
+                    agent.onActivityResult(requestCode, resultCode, data);
+                    mAgentToBack = null;
+                    break;
+                }
+            } else {
+                if (agent != null) {
+                    agent.onActivityResult(requestCode, resultCode, data);
+                }
             }
         }
     }
@@ -407,6 +415,14 @@ public class LightAgentManager implements AgentManagerInterface {
         }
         return result;
     }
+
+    private AgentInterface mAgentToBack = null;
+    @Override
+    public void backToCurrentActivityResult(AgentInterface agent) {
+        mAgentToBack = agent;
+    }
+
+
 
     //onAgentChanged callback is Deprecated,so don't call dispatchCellChanged.
     @Deprecated

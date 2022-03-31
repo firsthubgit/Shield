@@ -15,6 +15,7 @@ import com.dianping.agentsdk.framework.*
 import com.dianping.agentsdk.manager.SectionRecyclerCellManager
 import com.dianping.agentsdk.pagecontainer.CommonPageContainerFunctionInterface
 import com.dianping.agentsdk.sectionrecycler.layoutmanager.OnSmoothScrollListener
+import com.dianping.shield.agent.LightAgent
 import com.dianping.shield.bridge.feature.*
 import com.dianping.shield.entity.*
 import com.dianping.shield.feature.ExposeScreenLoadedInterface
@@ -235,6 +236,9 @@ open class ShieldLifeCycler : AgentCellBridgeInterface, UIRDriverInterface,
         cellManager.updateCells(addList, updateList, deleteList)
     }
 
+    override fun backToCurrentActivityResult(agent: AgentInterface){
+        agentManager.backToCurrentActivityResult(agent)
+    }
 
     override fun updateAgentCell(agent: AgentInterface) {
         if (this::cellManager.isInitialized) {
